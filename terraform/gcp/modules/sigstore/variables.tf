@@ -15,6 +15,7 @@
  */
 
 variable "project_id" {
+  description = "Your Google Cloud project id (Ex: myproject-771c4f0a). Not to be confused with the project number."
   type = string
   validation {
     condition     = length(var.project_id) > 0
@@ -48,6 +49,7 @@ variable "attestation_region" {
 variable "attestation_bucket" {
   type        = string
   description = "Name of GCS bucket for attestation."
+  default     = "sigstore-attestation"
 }
 
 variable "attestation_storage_class" {
@@ -59,11 +61,13 @@ variable "attestation_storage_class" {
 variable "tuf_bucket" {
   type        = string
   description = "Name of GCS bucket for TUF root."
+  default     = "sigstore-tuf"
 }
 
 variable "tuf_preprod_bucket" {
   type        = string
   description = "Name of GCS bucket for preprod/staged TUF root."
+  default     = "sigstore-tuf-preprod"
 }
 
 variable "tuf_storage_class" {
@@ -125,11 +129,6 @@ variable "cluster_network_tag" {
 variable "tunnel_accessor_sa" {
   type        = string
   description = "Email of group to give access to the tunnel to"
-}
-
-variable "github_repo" {
-  description = "Github repo for running Github Actions from."
-  type        = string
 }
 
 variable "mysql_instance_name" {

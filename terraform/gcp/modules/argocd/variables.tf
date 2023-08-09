@@ -34,11 +34,6 @@ variable "argo_apps_chart_values_yaml_path" {
   type        = string
 }
 
-variable "github_repo" {
-  description = "Github repo for running Github Actions from."
-  type        = string
-}
-
 variable "gcp_secret_name_ssh" {
   description = "GCP Secret name that holds the SSH key for GitHub repository access."
   type        = string
